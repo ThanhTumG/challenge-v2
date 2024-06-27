@@ -38,7 +38,7 @@ function QuoteGen() {
         getQuote()
     }, [])
     return (
-        <div className="flex flex-1 flex-col justify-center items-center min-h-screen mb-20 space-y-16 font-raleway">
+        <div className={`flex flex-1 flex-col ${mode ? 'justify-start' : 'justify-center'}  items-center min-h-screen mb-20 space-y-16 font-raleway`}>
             <div className="flex">
                 <button onClick={() => handleOnclick()} className="flex fixed items-center space-x-1 top-6  right-12 ">
                     <text className=" text-[#4F4F4F] text-[18px] ">random</text>

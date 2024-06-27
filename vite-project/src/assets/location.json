@@ -1,0 +1,146 @@
+[
+    {
+        "name": "london",
+        "value": "London, United Kingdom"
+    },
+    {
+        "name": "new york",
+        "value": "New York, NY"
+    },
+    {
+        "name": "amsterdam",
+        "value": "Amsterdam, Netherlands"
+    },
+    {
+        "name": "berlin",
+        "value": "Berlin, Germany"
+    },
+    {
+        "name": "ho chi minh",
+        "value": "Ho Chi Minh City, Vietnam"
+    },
+    {
+        "name": "hong kong",
+        "value": "Hong Kong"
+    },
+    {
+        "name": "bangkok",
+        "value": "Bangkok, Thailand"
+    },
+    {
+        "name": "banjar",
+        "value": "Banjar, Indonesia"
+    },
+    {
+        "name": "seoul",
+        "value": "Seoul, South Korea"
+    },
+    {
+        "name": "boston",
+        "value": "Boston, NY"
+    },
+    {
+        "name": "brighton",
+        "value": "Brighton, United Kingdom"
+    },
+    {
+        "name": "bern",
+        "value": "Bern, Switzerland"
+    },
+    {
+        "name": "kuala lumpur",
+        "value": "Kuala Lumpur, Malaysia"
+    },
+    {
+        "name": "kurihashi",
+        "value": "Kurihashi, Japan"
+    },
+    {
+        "name": "kuta",
+        "value": "Kuta, Indonesia"
+    },
+    {
+        "name": "paris",
+        "value": "Paris, France"
+    },
+    {
+        "name": "tokyo",
+        "value": "Tokyo, Japan"
+    },
+    {
+        "name": "madrid",
+        "value": "Madrid, Spain"
+    },
+    {
+        "name": "loughborough",
+        "value": "Loughborough, United Kingdom"
+    },
+    {
+        "name": "lovisa",
+        "value": "Lovisa, Finland"
+    },
+    {
+        "name": "edinburgh",
+        "value": "Edinburgh, United Kingdom"
+    },
+    {
+        "name": "genzano di roma",
+        "value": "Genzano di Roma, Italy"
+    },
+    {
+        "name": "warsaw",
+        "value": "Warsaw, Poland"
+    },
+    {
+        "name": "weihai",
+        "value": "Weihai, China"
+    },
+    {
+        "name": "weiden",
+        "value": "Weiden, Germany"
+    },
+    {
+        "name": "colima",
+        "value": "Colima, Mexico"
+    },
+    {
+        "name": "lima",
+        "value": "Lima, Peru"
+    },
+    {
+        "name": "lingdong",
+        "value": "Lingdong, China"
+    },
+    {
+        "name": "los angeles",
+        "value": "Los Angeles, CA"
+    },
+    {
+        "name": "moskovskiy",
+        "value": "Moskovskiy, Russia"
+    },
+    {
+        "name": "munich",
+        "value": "Munich, Germany"
+    },
+    {
+        "name": "mut",
+        "value": "Mut, Turkey"
+    },
+    {
+        "name": "manila",
+        "value": "Manila, Philippines"
+    },
+    {
+        "name": "antananarivo",
+        "value": "Antananarivo, Madagascar"
+    },
+    {
+        "name": "rio de janeiro",
+        "value": "Rio de Janeiro, Brazil"
+    },
+    {
+        "name": "hiroshima",
+        "value": "Hiroshima, Japan"
+    }
+]

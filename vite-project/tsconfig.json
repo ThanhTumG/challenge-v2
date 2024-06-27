@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "types": [
+      "node"
+    ] // Thêm dòng này
+  },
   "files": [],
   "references": [
     {
