@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Close, Search, ChevronRight } from "@mui/icons-material";
 import { SearchBar } from '../SearchBar';
 import { getCity, getWeatherByCity } from '../../api/WeatherAppAPI'

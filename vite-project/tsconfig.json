@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
+    "target": "es2021",
+    "lib": [
+      "dom",
+      "es2021"
+    ],
     "types": [
       "node"
-    ] // Thêm dòng này
+    ]
   },
   "files": [],
   "references": [
