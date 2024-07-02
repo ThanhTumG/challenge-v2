@@ -30,7 +30,7 @@ function DetailWeather() {
                 <div className="flex items-center w-[30px] h-[30px] justify-center rounded-full bg-white/[.3]">
                     <NavigationRounded sx={{ fontSize: 20 }} className={`transform  ${rotate}`} />
                 </div>
-                <text className="font-[500] text-center text-[14px]">{direction}</text>
+                <p className="font-[500] text-center text-[14px]">{direction}</p>
             </div>
         )
     }
@@ -45,23 +45,23 @@ function DetailWeather() {
                 {weather4Days.map((weather, index) => <WeatherWidget key={index} date={{ today: today, index: index }} weather={weather.weather[0].description} isFahrenheit={isFahrenheit} temp={[Math.max(...weather.tempRange), Math.min(...weather.tempRange)]} />)}
             </div>
             <div className="flex flex-col text-[#E7E7EB] w-[90%] space-y-6">
-                <text className="text-left  font-[700] text-[24px]">Today’s Hightlights </text>
+                <p className="text-left  font-[700] text-[24px]">Today’s Hightlights </p>
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-6 self-center w-full">
                     <div className="flex flex-col items-center justify-between h-[204px] bg-[#1E213A] py-4">
-                        <text className="text-center text-[16px]">Wind status</text>
+                        <p className="text-center text-[16px]">Wind status</p>
                         <div className="flex items-center">
-                            <text className="text-center font-[700] text-[64px]">{weatherToday?.windSpeed}</text>
-                            <text className="text-center font-[500] text-[36px]">{`mph`}</text>
+                            <p className="text-center font-[700] text-[64px]">{weatherToday?.windSpeed}</p>
+                            <p className="text-center font-[500] text-[36px]">{`mph`}</p>
                         </div>
                         {windDirection(weatherToday ? weatherToday.windDeg : 0)}
 
 
                     </div>
                     <div className="flex flex-col items-center justify-between h-[204px] bg-[#1E213A] py-4">
-                        <text className="text-center text-[16px]">Humidity</text>
+                        <p className="text-center text-[16px]">Humidity</p>
                         <div className="flex items-center">
-                            <text className="text-center font-[700] text-[64px]">{weatherToday?.humidity}</text>
-                            <text className="text-center font-[400] text-[36px]">%</text>
+                            <p className="text-center font-[700] text-[64px]">{weatherToday?.humidity}</p>
+                            <p className="text-center font-[400] text-[36px]">%</p>
                         </div>
                         <div className="flex flex-col justify-center w-[70%] ">
                             <div className="flex justify-between items-center">
@@ -82,17 +82,17 @@ function DetailWeather() {
 
                     </div>
                     <div className="flex items-center flex-col h-[159px] py-4 bg-[#1E213A]">
-                        <text className="text-center text-[16px]">Visibility</text>
+                        <p className="text-center text-[16px]">Visibility</p>
                         <div className="flex items-center space-x-2">
-                            <text className="text-center font-[700] text-[64px]">{weatherToday?.visibility}</text>
-                            <text className="text-center font-[500] text-[36px]">miles</text>
+                            <p className="text-center font-[700] text-[64px]">{weatherToday?.visibility}</p>
+                            <p className="text-center font-[500] text-[36px]">miles</p>
                         </div>
                     </div>
                     <div className="flex items-center flex-col h-[159px] py-4 bg-[#1E213A]">
-                        <text className="text-center text-[16px]">Air Pressure</text>
+                        <p className="text-center text-[16px]">Air Pressure</p>
                         <div className="flex items-center space-x-2">
-                            <text className="text-center font-[700] text-[64px]">{weatherToday?.airPressure}</text>
-                            <text className="text-center font-[500] text-[36px]">mb</text>
+                            <p className="text-center font-[700] text-[64px]">{weatherToday?.airPressure}</p>
+                            <p className="text-center font-[500] text-[36px]">mb</p>
                         </div>
                     </div>
 

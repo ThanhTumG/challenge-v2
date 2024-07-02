@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useCallback, useEffect, useContext, useState } from 'react';
+import { ReactNode, createContext, useEffect, useContext, useState } from 'react';
 import { getJob } from '../api/JobSearchAPI';
 
 interface AppContextProps {
@@ -7,8 +7,11 @@ interface AppContextProps {
     listJob: JobType[];
     selectedLevel: string[]; setSelectedLevel: React.Dispatch<React.SetStateAction<string[]>>;
     isDetail: boolean; setIsDetail: React.Dispatch<React.SetStateAction<boolean>>;
-    selectedJob: JobType | null; setSelectedJob: React.Dispatch<React.SetStateAction<JobType | null>>,
-    loading: boolean
+    selectedJob: JobType | null; setSelectedJob: React.Dispatch<React.SetStateAction<JobType | null>>;
+    loading: boolean,
+    inputText: string; setInputText: React.Dispatch<React.SetStateAction<string>>;
+    result: any[]; setResult: React.Dispatch<React.SetStateAction<any[]>>;
+    active: number, setActive: React.Dispatch<React.SetStateAction<number>>;
 }
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
@@ -41,6 +44,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [selectedJob, setSelectedJob] = useState<JobType | null>(null)
     const [isDetail, setIsDetail] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false);
+    const [inputText, setInputText] = useState<string>("");
+    const [result, setResult] = useState<any[]>([])
+    const [active, setActive] = useState<number>(1);
 
     const getListJob = async () => {
         setLoading(true)
@@ -63,7 +69,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             value={{
                 selectedLocation, setSelectedLocation, selectedCompany,
                 setSelectedCompany, listJob, setSelectedLevel, selectedLevel,
-                isDetail, setIsDetail, selectedJob, setSelectedJob, loading
+                isDetail, setIsDetail, selectedJob, setSelectedJob, loading,
+                inputText, setInputText, result, setResult, active, setActive
             }}
         >
             {children}

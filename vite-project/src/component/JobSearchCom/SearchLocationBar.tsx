@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronRight, Public } from "@mui/icons-material";
 import { SearchBar } from "../SearchBar";
 import { useAppContext } from "../../appContext/JobSearchProvider";
@@ -7,8 +7,8 @@ import listLocation from "../../assets/location.json"
 export default function SearchLocationBar() {
     const [inputText, setInputText] = useState<string>("");
     const [result, setResult] = useState<string[]>([])
-    const [focus, setFocus] = useState(false)
-    const { setSelectedLocation } = useAppContext()
+    const [focus, setFocus] = useState<boolean>(false)
+    const { setSelectedLocation, setActive } = useAppContext()
     const dropdownRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLDivElement>(null)
     const handleClickOutside = (event: Event) => {
@@ -21,11 +21,19 @@ export default function SearchLocationBar() {
             setFocus(false);
         }
     };
+    const Capitalize = (Str: string) => {
+        return Str.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    }
     const handleClickLocation = (result: string) => {
         const foundLocation = listLocation.find((loc) => loc.name === result)?.value;
-        if (foundLocation)
+        if (foundLocation) {
             setSelectedLocation({ name: result, value: foundLocation });
-        setInputText(result); setFocus(false)
+            setInputText(Capitalize(result));
+            setResult([result])
+            setActive(1)
+        }
+        setFocus(false)
+
     }
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);

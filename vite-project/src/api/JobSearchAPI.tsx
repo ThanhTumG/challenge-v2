@@ -3,7 +3,6 @@ const BASE_URL = "https://www.themuse.com/api"
 export const getJob = async (level: string[], company: string, location: string) => {
     const levelStr = level.length ? level.reduce((acc, curr) => `${acc}level=${curr.replaceAll(' ', '%20')}&`, '') : ''
     const companyStr = company.length ? `company=${(company[0].toUpperCase() + company.slice(1)).replaceAll(' ', '%20')}&` : ''
-    let newListJob = []
 
     const fetchJob = async (value: number): Promise<[number, any[]]> => {
         try {
@@ -18,15 +17,23 @@ export const getJob = async (level: string[], company: string, location: string)
             return [0, []];
         }
     }
-    for (let i = 1; i < 10; i++) {
-        const [pg_count, pg_result] = await fetchJob(i)
-        newListJob[i - 1] = { key: i, value: pg_result }
-        if (pg_count === i + 1 || i === 9) {
-            const data = newListJob.reduce((acc, curr) => acc.concat(curr.value), [] as any[])
-            return data
+    const fetchPromises = [];
+    for (let i = 1; i <= 20; i++) {
+        fetchPromises.push(fetchJob(i));
+    }
+
+    const results = await Promise.all(fetchPromises);
+    const pg_count = results[0][0]
+    let data: any[] = [];
+    for (let i = 0; i < results.length; i++) {
+        const [_, pg_result] = results[i];
+        data = data.concat(pg_result);
+        if (pg_count === i + 1) {
+            break;
         }
     }
-    return []
+
+    return data;
 }
 
 

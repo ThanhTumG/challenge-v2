@@ -54,7 +54,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         }
     }, [])
     const getData = useCallback(() => {
-        const weatherNext4Day = dataList?.filter((value, index) => { if (index % 8 === 0 && index !== 0) return true; return false })
+        const weatherNext4Day = dataList?.filter((_, index) => { if (index % 8 === 0 && index !== 0) return true; return false })
         let tempRange4Day: { [key: string]: any } = {}
         // get num of weather each day
         dataList?.forEach(ele => {

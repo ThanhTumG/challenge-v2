@@ -13,13 +13,17 @@ const SearchLocation: React.FC = () => {
     const [inputText, setInputText] = useState("");
     const [country, setCountry] = useState<string[]>([]);
     const [result, setResult] = useState([])
+    const Capitalize = (Str: string) => {
+        return Str.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    }
     const handleGetWeatherByCity = async (city: string) => {
+        if (city === "") return
         try {
             const weather = await getWeatherByCity(city)
             setLocationName(weather.city.name)
             setDataList(weather.list)
         } catch (error) {
-            alert(`${city} is either not valid or the data has not been updated yet.`)
+            alert(`${Capitalize(city)} is either not valid or the data has not been updated yet.`)
         }
     }
     useEffect(() => {
@@ -64,9 +68,9 @@ const SearchLocation: React.FC = () => {
                 </div>
                 <div className="flex items-center flex-col space-y-2 overflow-y-auto  justify-start w-[85%]">
                     {result.slice(0, 10).map((result, index) => (
-                        <button key={index} onClick={() => { handleGetWeatherByCity(result); setInputText(result) }} className="flex justify-between items-center px-4 w-full h-[55px] text-[#E7E7EB] 
+                        <button key={index} onClick={() => { handleGetWeatherByCity(result); setInputText(Capitalize(result)) }} className="flex justify-between items-center px-4 w-full h-[55px] text-[#E7E7EB] 
                 font-[500] text-[16px] hover:border-2 hover:border-[#616475]">
-                            <text className="capitalize">{result}</text>
+                            <p className="capitalize">{result}</p>
                             <ChevronRight />
                         </button>
                     ))}

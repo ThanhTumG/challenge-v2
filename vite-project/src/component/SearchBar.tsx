@@ -28,7 +28,7 @@ export const SearchBar: React.FC<SearchProps> = React.memo(({ defaultValue = '',
         setInputText(value)
     }
     return (
-        <input value={inputText} className="pl-3 w-[90%] bg-transparent focus:outline-none" placeholder={placeholder}
+        <input value={inputText} className="pl-3 w-[90%]  bg-transparent focus:outline-none" placeholder={placeholder}
             onChange={e => handleChange(e.target.value)}  >
 
         </input>

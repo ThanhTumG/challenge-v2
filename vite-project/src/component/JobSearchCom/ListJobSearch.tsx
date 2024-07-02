@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppContext } from "../../appContext/JobSearchProvider";
 import { Public, Schedule, ChevronLeft, ChevronRight } from "@mui/icons-material";
 interface JobType {
@@ -19,8 +18,7 @@ interface JobType {
     }
 }
 export default function ListJobSearch() {
-    const { listJob, setSelectedJob, setIsDetail } = useAppContext()
-    const [active, setActive] = React.useState(1);
+    const { listJob, setSelectedJob, setIsDetail, active, setActive } = useAppContext()
     const handleDetail = (job: JobType) => {
         window.scrollTo(0, 0);
         setSelectedJob(job)
@@ -34,17 +32,17 @@ export default function ListJobSearch() {
         return differenceInDays;
     }
     return (
-        <div className="flex md:w-[70%] md:pt-0 pt-10 w-full flex-col items-center justify-center md:pl-10 pl-0 space-y-5">
-            {listJob && listJob.slice((active - 1) * 5, active * 5).map((job, index) => {
+        <div className="flex md:w-[70%] md:pt-0 pt-10 w-full flex-col items-center justify-start md:pl-10 pl-0 space-y-5">
+            {listJob && listJob.slice((active - 1) * 5, active * 5).map((job) => {
                 return (
-                    <button key={index} onClick={() => handleDetail(job)} className="relative flex p-3 space-x-5 items-start md:h-[114px] h-[200px] w-full rounded-[4px] border-1 border-[#334680] bg-white
+                    <button key={job.id} onClick={() => handleDetail(job)} className="relative flex p-3 space-x-5 items-start md:h-[114px] h-[200px] w-full rounded-[4px] border-1 border-[#334680] bg-white
                          drop-shadow-[0px_2px_4px_rgba(0,0,0,0.05)] hover:drop-shadow-none
                         ">
                         <div className="flex text-[#BDBDBD]  items-center justify-center h-[95px] min-w-[95px] bg-[#F2F2F2]">
                             <img className="w-[80px]" src={`https://assets.themuse.com/uploaded/companies/${job.company.id}/small_logo.png`} alt="Company logo"></img>
                         </div>
                         <div className="flex flex-col font-roboto h-[95%] items-start justify-between md:pb-0 pb-10 text-[#334680] text-start">
-                            <text className="font-[700] text-[12px]">{job.company.name}</text>
+                            <p className="font-[700] text-[12px]">{job.company.name}</p>
                             <p className="font-[400] text-[18px]">{job.name}</p>
                             <div className="flex space-x-3">
                                 {job.levels.map((level, index) => {
@@ -60,19 +58,20 @@ export default function ListJobSearch() {
 
                             <div className="flex space-x-1 items-center text-[#B9BDCF]">
                                 <Public sx={{ fontSize: 14 }} />
-                                <text className=" ">
+                                <p className=" ">
                                     {job.locations.map((loc) => loc.name).slice(0, 2).join(' or ')}
-                                </text>
+                                </p>
                             </div>
                             <div className="flex space-x-1 items-center text-[#B9BDCF]">
                                 <Schedule sx={{ fontSize: 14 }} />
-                                <text className=" ">
+                                <p className=" ">
                                     {calculateDaysSincePublication(job.publication_date.slice(0, 10))} days ago
-                                </text>
+                                </p>
                             </div>
                         </div>
                     </button>)
             })}
+
             <div className="flex space-x-2 items-center pt-6 font-roboto place-self-end text-[12px] font-[400]">
                 <button onClick={() => setActive((prev) => {
                     if (prev === 1) return prev
@@ -85,11 +84,12 @@ export default function ListJobSearch() {
                     return (
                         (index === 1 || index === 2 || index === Math.ceil(listJob.length / 5) || Math.abs(index - active) <= 1) ?
                             <button key={index} onClick={() => setActive(index)}
-                                className={`w-[36px] ${active === index ? 'bg-[#1E86FF] border-[#1E86FF] hover:text-white text-white' : ''} hover:border-[#1E86FF] hover:text-[#1E86FF] text-[#B9BDCF] 
-                        h-[36px] border-[1.5px] border-[#B7BCCE] rounded-[4px]`}>
+                                className={`w-[36px] ${active === index ? 'bg-[#1E86FF] border-[#1E86FF] hover:text-white text-white' : ''} 
+                                            hover:border-[#1E86FF] hover:text-[#1E86FF] text-[#B9BDCF] 
+                                                h-[36px] border-[1.5px] border-[#B7BCCE] rounded-[4px]`}>
                                 {index}
                             </button>
-                            : Math.abs(index - active) === 3 ? <div className="text-center">...</div> : <></>
+                            : Math.abs(index - active) === 3 ? <div key={index} className="text-center">...</div> : null
                     )
                 })}
                 <button onClick={() => setActive((prev) => {

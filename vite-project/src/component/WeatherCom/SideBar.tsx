@@ -14,7 +14,7 @@ const SideBar: React.FC = () => {
                     <button onClick={() => setModal(true)} className="flex justify-center space-x-2 items-center bg-[#6E707A] w-[161px] h-[40px]
                         drop-shadow-[0px_4px_4px_rgba(0,0,0,0.45)] hover:bg-[#AEAEAE] focus:bg-[#AEAEAE]
                         hover:drop-shadow-none focus:drop-shadow-none">
-                        <text className="text-[#E7E7EB] ">Seach for places</text>
+                        <p className="text-[#E7E7EB] ">Seach for places</p>
                     </button>
                     <button onClick={() => getCurrentWeather()} className="flex items-center w-[40px] h-[40px] rounded-full drop-shadow-[0px_4px_4px_rgba(0,0,0,0.45)] justify-center bg-white/[.2]">
                         <MyLocation sx={{ fontSize: 20 }} className="text-[#E7E7EB]" />
@@ -29,16 +29,16 @@ const SideBar: React.FC = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center space-y-10 ">
                     <div className="flex justify-center items-center my-[-5px]">
-                        <text className="text-[#E7E7EB] text-[135px]">{(isFahrenheit && weatherToday) ? Math.floor(weatherToday.temp * (9 / 5) + 32) : weatherToday?.temp}</text>
-                        <text className="text-[#A09FB1] text-[50px]">º{isFahrenheit ? 'F' : 'C'}</text>
+                        <p className="text-[#E7E7EB] text-[135px]">{(isFahrenheit && weatherToday) ? Math.floor(weatherToday.temp * (9 / 5) + 32) : weatherToday?.temp}</p>
+                        <p className="text-[#A09FB1] text-[50px]">º{isFahrenheit ? 'F' : 'C'}</p>
                     </div>
-                    <text className="text-[#A09FB1] text-[36px] capitalize">{weatherToday?.weather}</text>
+                    <p className="text-[#A09FB1] text-[36px] capitalize">{weatherToday?.weather}</p>
                     <div className="flex flex-col text-[#88869D] text-[18px]">
 
-                        <text className=" ">{`Today • ${currentDate}`}</text>
+                        <p className=" ">{`Today • ${currentDate}`}</p>
                         <div className="flex items-center justify-center space-x-1">
                             <LocationOn />
-                            <text>{locationName}</text>
+                            <p>{locationName}</p>
 
                         </div>
                     </div>
