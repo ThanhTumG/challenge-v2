@@ -82,7 +82,7 @@ export default function ListJobSearch() {
                 {Array.from({ length: Math.ceil(listJob.length / 5) }, (_, i) => i + 1).map((index) => {
 
                     return (
-                        (index === 1 || index === 2 || index === Math.ceil(listJob.length / 5) || Math.abs(index - active) <= 1) ?
+                        (index === 1 || [1, 2, 3].includes(index) || index === 2 || index === Math.ceil(listJob.length / 5) || Math.abs(index - active) <= 1) ?
                             <button key={index} onClick={() => setActive(index)}
                                 className={`w-[36px] ${active === index ? 'bg-[#1E86FF] border-[#1E86FF] hover:text-white text-white' : ''} 
                                             hover:border-[#1E86FF] hover:text-[#1E86FF] text-[#B9BDCF] 
@@ -93,7 +93,7 @@ export default function ListJobSearch() {
                     )
                 })}
                 <button onClick={() => setActive((prev) => {
-                    if (prev === 12) return prev
+                    if (prev === Math.ceil(listJob.length / 5)) return prev
                     return prev + 1
                 })} className="w-[36px] text-[#B9BDCF] h-[36px] hover:border-[#1E86FF] hover:text-[#1E86FF] border-[1.5px] border-[#B7BCCE] rounded-[4px]">
                     <ChevronRight />

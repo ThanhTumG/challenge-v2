@@ -27,10 +27,10 @@ export default function SearchCat() {
                 const newList = await getMostSearchList()
                 setMostSearch(newList)
             }
-
             setInputText('')
             setResults([])
             setMode("detail")
+            window.scrollTo(0, 0);
         }
     }
     useEffect(() => {

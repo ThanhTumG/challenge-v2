@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       {/* <QuoteGen /> */}
-      <WeatherApp />
-      {/* <JobSearchApp /> */}
+      {/* <WeatherApp /> */}
+      <JobSearchApp />
       {/* <CatWikiApp /> */}
     </>
   )

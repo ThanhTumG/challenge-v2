@@ -30,7 +30,7 @@ export default function MainPage() {
 
                         <div className="flex w-full justify-between">
                             <p className="w-[50%] font-montserrat text-[18px] md:text-[44px] font-[700] text-left text-[#291507]">66+ Breeds For you to discover</p>
-                            <button onClick={() => setMode("top")} className="place-self-end font-montserrat text-[10px] md:text-[18px] font-[700] text-left text-[#291507]/[.6]">SEE MORE
+                            <button onClick={() => { setMode("top"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="place-self-end font-montserrat text-[10px] md:text-[18px] font-[700] text-left text-[#291507]/[.6]">SEE MORE
                                 <ArrowRightAlt />
                             </button>
                         </div>

@@ -18,11 +18,12 @@ export const getJob = async (level: string[], company: string, location: string)
         }
     }
     const fetchPromises = [];
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 99; i++) {
         fetchPromises.push(fetchJob(i));
     }
 
     const results = await Promise.all(fetchPromises);
+
     const pg_count = results[0][0]
     let data: any[] = [];
     for (let i = 0; i < results.length; i++) {
@@ -32,7 +33,6 @@ export const getJob = async (level: string[], company: string, location: string)
             break;
         }
     }
-
     return data;
 }
 

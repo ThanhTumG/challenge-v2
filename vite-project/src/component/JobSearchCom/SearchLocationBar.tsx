@@ -62,7 +62,7 @@ export default function SearchLocationBar() {
                             handleClickLocation(result)}
                         className="flex justify-between items-center px-4 w-full min-h-[55px] 
                 font-[500] text-[16px] hover:border-2 hover:border-[#616475]">
-                        <text className="text-[#333333]  capitalize">{result}</text>
+                        <p className="text-[#333333]  capitalize">{result}</p>
                         <ChevronRight />
                     </button>
                 ))}

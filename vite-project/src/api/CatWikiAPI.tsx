@@ -104,7 +104,7 @@ export const getBreedImage = async (id: string) => {
 export const increaseVoteBreed = async (id: string, mostSearch: CatVote[]) => {
     const breed = mostSearch.find((cat) => cat.image_id === id)
     // const vote = await getVoteBreed()
-    console.log(breed)
+    // console.log(breed)
     let vote: number;
     if (breed) {
         vote = breed.value;

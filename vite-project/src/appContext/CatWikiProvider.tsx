@@ -64,8 +64,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [selectedCat, setSelectedCat] = useState<CatInfo | null>(null)
     const getAllCat = async () => {
         let newListCat: CatInfo[][] = [[]]
+        const fetchPromise = []
         for (let i = 0; i <= 6; i++) {
-            newListCat[i] = await fetchListCat(i)
+            fetchPromise.push(fetchListCat(i))
+        }
+        const result = await Promise.all(fetchPromise)
+        for (let i = 0; i < 6; i++) {
+            newListCat[i] = result[i]
         }
         setListCat(newListCat.reduce((acc, curr) => acc.concat(curr), [] as CatInfo[]))
     }

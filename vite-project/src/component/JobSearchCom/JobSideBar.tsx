@@ -25,9 +25,13 @@ export default function SideBar() {
         };
     }
     const handleLevel = (type: string) => {
-        setSelectedLevel((prev) => {
-            return prev.includes(type) ? prev.filter(el => el !== type) : [...prev, type]
-        })
+        if (type === "") {
+            setSelectedLevel([])
+        } else {
+            setSelectedLevel((prev) => {
+                return prev.includes(type) ? prev.filter(el => el !== type) : [...prev, type]
+            })
+        }
         setActive(1)
     }
     const handleOnchange = (location: { name: string; value: string }) => {
@@ -41,13 +45,21 @@ export default function SideBar() {
     return (
         <div className="flex flex-col md:w-[30%] w-full px-4 space-y-10">
             <ul className="flex flex-col space-y-4">
+                <div className="flex items-center space-x-2">
+                    <input checked={selectedLevel.length === 0} onChange={() => dHandle('')} className="w-[18px] h-[18px] border-[#B9BDCF]" type="checkbox"
+                    />
+                    <p className={`font-poppins text-[14px] text-[#334680] font-[500]`}>All Level</p>
+
+                </div>
+
                 {jobType.map((type, index) => (
                     <li className="flex items-center space-x-2" key={index}>
-                        <input checked={selectedLevel.includes(type)} onChange={() => dHandle(type, index)} className="w-[18px] h-[18px] border-[#B9BDCF]" type="checkbox"
+                        <input checked={selectedLevel.includes(type)} onChange={() => dHandle(type)} className="w-[18px] h-[18px] border-[#B9BDCF]" type="checkbox"
                         />
                         <p className={`font-poppins text-[14px] text-[#334680] font-[500]`}>{type}</p>
                     </li>
                 ))}
+
             </ul>
             <div className="flex flex-col items-start space-y-6">
                 <p className="font-poppins text-[#B9BDCF] text-[14px] font-[700]">LOCATION</p>
